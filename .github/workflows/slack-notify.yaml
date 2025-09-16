@@ -3,6 +3,7 @@ on: workflow_dispatch
 jobs:
   Notification:
     runs-on: ubuntu-latest
+    needs: codeanalysis
     steps:
       - name: Send to Slack
         uses: slackapi/slack-github-action@v2.1.1
@@ -12,6 +13,12 @@ jobs:
             text: "The Action has been started here for Slack ${{ github.run_number }} times"
           webhook: ${{secrets.Webhook_Github}}
           webhook-type: incoming-webhook
+  codeanalysis:
+   runs-on: ubuntu-latest
+   steps:
+    - name: code analysis
+      run: mkdir slack
+      
         
         
         
