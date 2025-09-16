@@ -9,7 +9,7 @@ jobs:
         with:
           payload: |
             channel: devops
-            text: "The Action has been started here for Slack ${{GITHUB_RUN_NUMBER}} times"
+            text: "The Action has been started here for Slack ${{ gihub.run_number }} times"
           webhook: ${{secrets.Webhook_Github}}
           webhook-type: incoming-webhook
         
