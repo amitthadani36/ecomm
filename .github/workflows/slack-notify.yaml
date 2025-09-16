@@ -1,0 +1,18 @@
+name: Slack Notification
+on: workflow_dispatch
+jobs:
+  Notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack: Send to Slack
+        uses: slackapi/slack-github-action@v2.1.1
+        with:
+          payload: |
+            channel: devops
+            text: "The Action has been started here for Slack ${{GITHUB_RUN_NUMBER}} times"
+          webhook: ${{secrets.Webhook_Github}}
+          webhook-type: incoming-webhook
+        
+        
+        
+    
